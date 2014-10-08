@@ -1,4 +1,6 @@
 class Movie
+	attr_reader :title, :rank
+
 	def initialize(title, rank = 0)
 		@title = title.capitalize
 		@rank = rank
@@ -15,11 +17,13 @@ class Movie
 	def thumbs_down
 		@rank -= 1
 	end
+
 end
 
 movie1 = Movie.new("goonies", 10)
 movie1.thumbs_up
 puts movie1
+
 
 movie2 = Movie.new("ghostbusters", 9)
 movie2.thumbs_down
