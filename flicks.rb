@@ -1,14 +1,16 @@
+def weekday
+	current_time = Time.new
+	current_time.strftime("%A")
+end
 
-puts "Mikey loves Goonies"
+def movie_listing(title, rank = 0)
+	"#{weekday.upcase}: #{title.capitalize} has a rank of #{rank}."
+end
 
 
-puts "Mikey's favorite movie is Goonies"
+puts movie_listing("goonies", 10)
+puts movie_listing("ghostbusters", 9)
 
-movie = 'Goonies'
+a_title = "goldfinger"
+puts movie_listing(a_title)
 
-
-puts "Mikey's favorite movie is #{movie}"
-
-rank = 10
-
-puts "#{movie} has a rank of #{rank}"
