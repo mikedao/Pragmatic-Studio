@@ -37,9 +37,39 @@ player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 
-puts player2.name
-player2.name = "lawrence"
-puts player2.name
-puts player2.health
-puts player2.score
-puts player2
+players = [player1, player2, player3]
+puts "There are #{players.size} players in the game: \n"
+
+# Iterate over each player, and print out player information
+puts "\n"
+players.each do |p|
+	puts p
+end
+
+# Iterate over each player, and print out health
+puts "\n"
+players.each do |p|
+	puts p.health
+end
+
+# Iterate over each player, blam then w00t twice, then display
+puts "\n"
+players.each do |p|
+	p.blam
+	p.w00t
+	p.w00t
+	puts p
+end
+
+# So pop Curly out of the array and push on a new player named "Shemp" with an initial health of 90. 
+# Then when you iterate through the array of players, Shemp should be on the roster.
+puts "\n"
+players.pop
+player4 = Player.new("shemp", 90)
+players.push(player4)
+players.each do |p|
+	puts p
+end
+
+
+

@@ -17,17 +17,17 @@ class Movie
 	def thumbs_down
 		@rank -= 1
 	end
-
 end
 
 movie1 = Movie.new("goonies", 10)
-movie1.thumbs_up
-puts movie1
-
-
 movie2 = Movie.new("ghostbusters", 9)
-movie2.thumbs_down
-puts movie2
-
 movie3 = Movie.new("goldfinger")
-puts movie3
+
+movies = [movie1, movie2, movie3]
+
+movies.each do |m|
+	m.thumbs_up
+	puts m
+end
+
+
