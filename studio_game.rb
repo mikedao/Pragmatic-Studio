@@ -29,7 +29,35 @@ class Player
 	def score
 		@name.length + @health
 	end
+end
 
+
+class Game
+	attr_reader :title
+
+	def initialize(title)
+		@title = title.capitalize
+		@players = []
+	end
+
+	def add_player(player)
+		@players << player
+	end
+
+	def play
+		puts "There are #{@players.size} players in #{@title}:"
+		@players.each do |p|
+			puts p
+		end
+
+		@players.each do |p|
+			p.blam
+			p.w00t
+			p.w00t
+			puts p
+		end
+
+	end
 
 end
 
@@ -37,39 +65,18 @@ player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 
-players = [player1, player2, player3]
-puts "There are #{players.size} players in the game: \n"
+knuckleheads = Game.new("Knuckleheads")
+knuckleheads.add_player(player1)
+knuckleheads.add_player(player2)
+knuckleheads.add_player(player3)
+knuckleheads.play
 
-# Iterate over each player, and print out player information
-puts "\n"
-players.each do |p|
-	puts p
-end
+chipmunks = Game.new("Chipmunks")
+player4 = Player.new("alvin")
+player5 = Player.new("simon", 125)
+player6 = Player.new("theodore", 60)
 
-# Iterate over each player, and print out health
-puts "\n"
-players.each do |p|
-	puts p.health
-end
-
-# Iterate over each player, blam then w00t twice, then display
-puts "\n"
-players.each do |p|
-	p.blam
-	p.w00t
-	p.w00t
-	puts p
-end
-
-# So pop Curly out of the array and push on a new player named "Shemp" with an initial health of 90. 
-# Then when you iterate through the array of players, Shemp should be on the roster.
-puts "\n"
-players.pop
-player4 = Player.new("shemp", 90)
-players.push(player4)
-players.each do |p|
-	puts p
-end
-
-
-
+chipmunks.add_player(player4)
+chipmunks.add_player(player5)
+chipmunks.add_player(player6)
+chipmunks.play

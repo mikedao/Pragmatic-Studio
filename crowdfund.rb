@@ -26,39 +26,55 @@ class Project
 	def needed
 		@target - @funding 
 	end
+end
+
+
+class Collection
+	attr_reader :title
+
+	def initialize(title)
+		@title = title.capitalize
+		@projects = []
+	end
+
+	def add_project(project)
+		@projects << project
+	end
+
+	def request_funding
+		puts "\n"
+		puts "REQUESTING FUNDING BITCHES"
+		puts "\n"
+		puts "There are #{@projects.size} projects."
+		
+		puts "\n"
+		@projects.each do |p|
+			puts p
+		end
+
+		puts "\n"
+		@projects.each do |p|
+			puts "Target funding is: #{p.funding} for Project #{p.name}."
+		end
+
+		puts "\n"
+		@projects.each do |p|
+			p.add
+			p.add
+			puts p
+		end
+
+	end
+
 
 end
 
+project1 = Project.new("ABC", 250, 1000)
 project2 = Project.new("LMN", 500, 3000)
 project3 = Project.new("XYZ", 25, 75)
 
-projects = [project2, project3]
-
-# Print out the number of projects in your array.
-puts "\n"
-puts "There are #{projects.size} projects."
-
-# Iterate through your projects and print each project's specific information.
-puts "\n"
-projects.each do |p|
-	puts p
-end
-
-# Iterate through your projects and print out the target funding amount of each project.
-puts "\n"
-projects.each do |p|
-	puts "Target funding is: #{p.funding} for Project #{p.name}."
-end
-
-# Iterate through your projects adding or removing funds from each project and then print out their 
-# revised information.
-puts "\n"
-projects.each do |p|
-	p.add
-	p.add
-	puts p
-end
-
-
-
-
+startup = Collection.new("startup")
+startup.add_project(project1)
+startup.add_project(project2)
+startup.add_project(project3)
+startup.request_funding
