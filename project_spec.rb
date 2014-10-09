@@ -26,5 +26,29 @@ describe Project do
 		expect(@project.funding).to eq(@initial_funding - 15)
 	end
 
+	context "not funded" do
+		before do
+			@initial_funding = 100
+			@target_funding = 1000
+			@project = Project.new("ABC", @initial_funding, @target_funding)
+		end
 
+		it "is_funded? returns false" do
+			expect(@project.is_funded?).to eq(false)
+		end
+
+	end
+
+	context "is funded" do
+		before do
+			@initial_funding = 500
+			@target_funding = 200
+			@project = Project.new("ABC", @initial_funding, @target_funding)
+		end
+
+		it "is_funded returns true" do
+			expect(@project.is_funded?).to eq(true)
+		end
+	end
+	
 end
