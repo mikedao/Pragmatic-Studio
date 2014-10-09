@@ -1,5 +1,5 @@
 require_relative 'project'
-
+require_relative 'die'
 
 class Collection
 	attr_reader :title
@@ -31,9 +31,14 @@ class Collection
 
 		puts "\n"
 		@projects.each do |p|
-			p.add
-			p.add
-			puts p
+			number_rolled = Die.new
+			case number_rolled.number
+			when 3..6 
+				p.add
+			else
+				p.remove
+			end
+
 		end
 
 	end

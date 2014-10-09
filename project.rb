@@ -26,4 +26,8 @@ class Project
 	def needed
 		@target - @funding 
 	end
+
+	def is_funded?
+		@funding >= @target
+	end
 end
