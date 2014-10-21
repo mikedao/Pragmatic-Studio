@@ -1,3 +1,4 @@
+require 'stringio'
 require_relative 'player'
 
 $stdout = StringIO.new
@@ -9,7 +10,7 @@ describe Player do
 		@initial_health = @player.health
 	end
 
-	it "has a capitalized name" do 
+	it "has a capitalized name" do
 		expect(@player.name).to eq("Larry")
 	end
 
@@ -30,7 +31,7 @@ describe Player do
 		expect(@player.health).to eq(@initial_health + 15)
 	end
 
-	it "decreases health by 10 when blammed" do 
+	it "decreases health by 10 when blammed" do
 		@player.blam
 		expect(@player.health).to eq(@initial_health - 10)
 	end
@@ -54,7 +55,7 @@ describe Player do
 			expect(@player.strong?).to eq(false)
 		end
 	end
-	
+
 
 
 end

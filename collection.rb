@@ -1,5 +1,6 @@
 require_relative 'project'
 require_relative 'die'
+require_relative 'funding_round'
 
 class Collection
 	attr_reader :title
@@ -31,13 +32,7 @@ class Collection
 
 		puts "\n"
 		@projects.each do |p|
-			number_rolled = Die.new
-			case number_rolled.number
-			when 3..6 
-				p.add
-			else
-				p.remove
-			end
+			FundingRound.fund(p)
 
 		end
 
