@@ -1,4 +1,5 @@
 require_relative 'game'
+require 'stringio'
 $stdout = StringIO.new
 
 
@@ -9,26 +10,26 @@ describe Game do
 
     @initial_health = 100
     @player = Player.new("moe", @initial_health)
-    
+
     @game.add_player(@player)
   end
 
   it "player gets w00ted when a high number is rolled" do
   	allow_any_instance_of(Die).to receive(:roll).and_return(5)
-  	@game.play
-  	expect(@player.health).to eq(@initial_health + 15)
+  	@game.play(2)
+  	expect(@player.health).to eq(@initial_health + (15 * 2))
   end
 
   it "player gets skipped when a medium number is rolled" do
   	allow_any_instance_of(Die).to receive(:roll).and_return(3)
-  	@game.play
+  	@game.play(2)
   	expect(@player.health).to eq(@initial_health)
   end
 
   it "player gets blammed when a low number is rolled" do
   	allow_any_instance_of(Die).to receive(:roll).and_return(1)
-  	@game.play
-  	expect(@player.health).to eq(@initial_health - 10)
+  	@game.play(2)
+  	expect(@player.health).to eq(@initial_health - (10*2))
   end
 
 end

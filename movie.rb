@@ -19,7 +19,7 @@ class Movie
 	end
 
 	def hit?
-		if @rank >= 10 
+		if @rank >= 10
 			return true
 		else
 			false
@@ -29,9 +29,11 @@ class Movie
 
 	def status
 		hit? ? "Hit" : "Flop"
+	end
 
+	def <=>(other_movie)
+		other_movie.rank <=> @rank
 	end
 
 
 end
-

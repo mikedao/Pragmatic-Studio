@@ -11,6 +11,12 @@ class Player
 		@name = new_name.capitalize
 	end
 
+	def <=>(other)
+    other.score <=> score
+  end
+
+
+
 
 	def to_s
 		"I'm #{@name} with a health of #{@health} and a score of #{score}."
