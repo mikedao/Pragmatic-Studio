@@ -68,10 +68,21 @@ class Game
 		end
 
 		puts "\nGrand Total points across all players: #{total_points}"
+
+		@players.sort.each do |player|
+			puts "\n#{player.name}'s point totals:"
+			player.each_found_treasure do |treasure|
+				puts "#{treasure.points} total #{treasure.name} points."
+			end
+
+			puts "#{player.points} grand total points."
+		end
+
 	end
 
 	def total_points
 		@players.reduce(0) { |sum, player| sum + player.points }
 	end
+
 
 end

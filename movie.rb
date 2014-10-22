@@ -17,6 +17,14 @@ class Movie
 		@snack_carbs.values.reduce(0, :+)
 	end
 
+	def each_snack
+		@snack_carbs.each do |name, carbs|
+			snack = Snack.new(name, carbs)
+			yield snack
+		end
+
+	end
+
 
 	def to_s
 	"#{@title} has a rank of #{@rank}. (#{status})"
