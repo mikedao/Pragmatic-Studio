@@ -1,11 +1,11 @@
-require_relative 'die'
+require_relative 'loaded_die'
 require_relative 'player'
 require_relative 'treasure_trove'
 
 module GameTurn
 
 	def self.take_turn(player)
-		number_rolled = Die.new
+		number_rolled = LoadedDie.new
 			case number_rolled.roll
 			when 3..4
 				puts "Player Skipped"
