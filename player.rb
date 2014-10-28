@@ -61,9 +61,9 @@ class Player
 		name, health = string.split(',')
 		Player.new(name, Integer(health))
 	end
-	
 
-	end
+
+
 
 
 
