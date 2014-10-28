@@ -6,7 +6,7 @@ movie3 = Movie.new("goldfinger")
 
 
 
-playlist1 = Playlist.new("Kermit")
+playlist1 = Flicks::Playlist.new("Kermit")
 playlist1.load(ARGV.shift || "movies.csv")
 movie3d = Movie3D.new('glee', 5, 20)
 playlist1.add_movie(movie3d)
