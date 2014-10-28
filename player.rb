@@ -57,5 +57,14 @@ class Player
 		@health > 100
 	end
 
+	def self.from_csv(string)
+		name, health = string.split(',')
+		Player.new(name, Integer(health))
+	end
+	
+
+	end
+
+
 
 end
